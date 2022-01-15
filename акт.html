@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Акт звірки</title>
+    <!-- font-family: 'VremenaRegular'; -->
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/vremena" type="text/css" />
+    <!-- font-family: 'Source Serif 4', sans-serif; -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;700&display=swap" rel="stylesheet" />
+    <!-- font-family: 'PT Serif', serif; -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'PT Serif';
+      }
+      table th,
+      table td {
+      padding: 10px;
+      border: 1px solid #2a2a2a;
+      }
+      table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      }
+       p {
+        text-indent: 20px; /* Отступ первой строки в пикселах */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <section>
+        <h1>
+          Акт купівлі-продажу електричної енергії за
+          <Bill_Inform paramname="DATEBILL" format="ukr"></bill_inform><Bill_Inform paramname="DATEBILL" format="yyyy"></bill_inform>р.
+        </h1>
+        <ul>
+          <li>м. Київ</li>
+          <li>
+            <Bill_inform paramname="DATEBILL2" format="dd MMMM yyyy"/> р.
+          </li>
+        </ul>
+      </section>
+    </header>
+    <main>
+      <!--======================= Hero ==================-->
+      <section>
+        <p>
+          <span>
+            <node_inform paramname="IBS_POSTACH_FULL_NAME"></node_inform>
+          </span>
+          в особі директора
+          <span>
+            <node_inform paramname="IBS_POSTACH_FIO2"></node_inform> </span
+          >, який діє на підставі Статуту надалі - «Постачальник», з однієї сторони, та
+          <span>
+            <node_inform nodedenom="FIRMA" paramname="IBS_FULL_NAME"> </node_inform>
+          </span>в особі
+          <span>
+            <node_inform nodedenom="FIRMA" paramname="IBS_SIGNER2">&nbsp;<node_inform nodedenom="FIRMA" paramname="IBS_FIO2"> 
+          </span>, який діє на підставі
+          <span>
+            <node_inform nodedenom="FIRMA" paramname="IBS_BASE">
+          </span>, надалі - «Споживач», з іншої сторони, керуючись умовами Договору № 
+          <span>
+            <node_inform nodedenom="FIRMA" paramname="IBS_NDOG"></node_inform>
+          </span>від 
+          <span>
+            <node_inform nodedenom="FIRMA" paramname="IBS_DDOG"></node_inform>
+          </span> року про постачання електричної енергії споживачу, склали даний акт про те, що у період з
+          <span>
+            <bill_inform paramname="DATEBILL" format="dd.MM.yyyy"></bill_inform>
+          </span> року по 
+          <span>
+            <bill_inform paramname="DATEBILL2" format="dd.MM.yyyy"></bill_inform>
+          </span> року включно Постачальник продав, а Споживач придбав:
+        </p>
+      </section>
+
+      <!--====================== Calculations/table ===================-->
+      <section>
+        <h2 class="none">Таблиця розрахунків електричної енергії «ЕНЕРГУМ»</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Найменування</th>
+              <th>Одиниця виміру</th>
+              <th>Кількість</th>
+              <th>Ціна* без ПДВ, грн.</th>
+              <th>Сума без ПДВ, грн.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>Електрична енергія</td>
+              <td>кВт•год</td>
+              <td><bill_inform class="0" paramname="VAL"></bill_inform></td>
+              <td><bill_inform class="0" paramname="COST"></bill_inform></td>
+              <td><bill_inform class="0" paramname="SUM"></bill_inform></td>
+            </tr>
+            <tr>
+              <td colspan="4">Крім того ПДВ:</td>
+              <td><bill_inform paramname="SUMNDS"></bill_inform></td>
+            </tr>
+            <tr>
+              <td colspan="4">Разом з ПДВ:</td>
+              <td><bill_inform paramname="SUMALLNDS"></bill_inform></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          * Ціна визначається: к.4=к.5/к.3
+        </p>
+        <p>
+          Загальна вартість електричної енергії склала
+          <span>
+            <bill_inform paramname="SUMALLNDS"></bill_inform>
+          </span>грн.
+          <span>
+            (<bill_inform paramname="SUMALLNDSWORDS"></bill_inform>)
+          </span>у т.ч. ПДВ
+          <span>
+            <bill_inform paramname="SUMNDS"></bill_inform>
+          </span>грн.(
+          <span>
+            <bill_inform paramname="SUMNDSWORDS"></bill_inform>
+          </span>).
+        </p>
+      </section>
+      <!--====================== Liability / Dispute Resolution ===================-->
+      <section>
+        <p>
+          Цей акт складено у двох примірниках, які мають однакову юридичну силу. Послуга надана у повному обсязі та у зазначений термін. Сторони жодних претензій відповідно до якості та обсягу надання послуги не мають. Примірник Акту після підписання підлягає поверненню до бухгалтерії ТОВ «ЕНЕРГУМ» за адресою: 02094, вул. Магнітогорська 1, м. Київ. Акт вважається узгоджений Споживачем та підписантом без зауважень в односторонньому порядку, якщо протягом п’яти робочих днів Споживач не повернув підписаний примірник акту або не надіслав мотивованої відмови від його підписання.
+        </p>
+      </section>
+      <!--====================== Legal addresses / Requisites ===================-->
+      <section>
+        <div>
+          <h3>Постачальник:</h3>
+          <ul>
+            <li><Node_Inform nodedenom="FIRMA" paramname="IBS_FULL_NAME" /></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div>
+          <h3></h3>
+          <ul>
+            <li><node_inform nodedenom="FIRMA" paramname="IBS_FULL_NAME"></node_inform></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <!--====================== Signatures ===================-->
+    <footer>
+      <!-- .change.current::after -->
+      <div>
+        <h4></h4>
+        <!-- .change.current::after -->
+        <p></p>
+      </div>
+      <!-- .change.current::after -->
+      <div>
+        <h4></h4>
+        <!-- .change.current::after -->
+        <p></p>
+      </div>
+    </footer>
+  </body>
+</html>
