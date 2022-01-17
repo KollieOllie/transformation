@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/main.min.css" />
     <style>
       body {
         font-family: 'PT Serif';
@@ -36,16 +37,18 @@
   <body>
     <header>
       <section>
-        <h1>
+        <div class="container">
+          <h1>
           Акт купівлі-продажу електричної енергії за
           <Bill_Inform paramname="DATEBILL" format="ukr"></bill_inform><Bill_Inform paramname="DATEBILL" format="yyyy"></bill_inform>р.
-        </h1>
-        <ul>
-          <li>м. Київ</li>
-          <li>
-            <Bill_inform paramname="DATEBILL2" format="dd MMMM yyyy"/> р.
-          </li>
-        </ul>
+          </h1>
+          <ul>
+            <li>м. Київ</li>
+            <li>
+              <Bill_inform paramname="DATEBILL2" format="dd MMMM yyyy"/> р.
+            </li>
+          </ul>
+        </div>
       </section>
     </header>
     <main>
@@ -82,7 +85,6 @@
           </span> року включно Постачальник продав, а Споживач придбав:
         </p>
       </section>
-
       <!--====================== Calculations/table ===================-->
       <section>
         <h2 class="none">Таблиця розрахунків електричної енергії «ЕНЕРГУМ»</h2>
@@ -151,33 +153,68 @@
         <div>
           <h3>Постачальник:</h3>
           <ul>
-            <li><Node_Inform nodedenom="FIRMA" paramname="IBS_FULL_NAME" /></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>код ЄДРПОУ:
+              <span><Node_Inform paramname="IBS_POSTACH_FULL_NAME" /></span>
+            </li>
+            <li>рахунок:
+              <span><Node_Inform paramname="IBS_POSTACH_EDRPOU" /></span>
+            </li>
+            <li>в Київському управлінні
+              <span><Node_Inform paramname="IBS_POSTACH_BILL" /></span>
+            </li>
+            <li>МФО
+              <span><Node_Inform paramname="IBS_POSTACH_MFO" /></span>
+            </li>
+            <li>ІПН 
+              <span><Node_Inform paramname="IBS_POSTACH_IPN" /></span>
+            </li>
+            <li>юридична адреса: 
+              <span><Node_Inform paramname="IBS_POSTACH_ADDRESS" /></span>
+            </li>
+            <li>тел.:
+              <span><Node_Inform paramname="IBS_POSTACH_PHONES" /></span>
+            </li>
+            <li>веб-сторінка:
+              <span> <Node_Inform paramname="IBS_POSTACH_WEB" /></span>
+            </li>
+            <li>ел. адреса: 
+              <span><Node_Inform paramname="IBS_POSTACH_EMAIL" /></span>
+            </li>
           </ul>
         </div>
         <div>
-          <h3></h3>
+          <h3>Споживач:</h3>
           <ul>
-            <li><node_inform nodedenom="FIRMA" paramname="IBS_FULL_NAME"></node_inform></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_FULL_NAME" /></span>
+            </li>
+            <li>код ЄДРПОУ:
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_EDRPOU" /></span>
+            </li>
+            <li>рахунок:
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_BILL" /></span>
+            </li>
+            <li>в
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_BANK" /></span>
+            </li>
+            <li>МФО 
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_MFO" /></span>
+            </li>
+            <li>ІПН 
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_INN" /></span>
+            </li>
+            <li>юридична адреса: 
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_UR_ADR" /></span>
+            </li>
+            <li>тел.: 
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_PHONE" /></span>
+            </li>
+            <li>веб-сторінка:  
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_WEB" /></span>
+            </li>
+            <li>ел. адреса: 
+              <span><Node_Inform nodedenom="FIRMA" paramname="IBS_EMAIL" /></span>
+            </li>
           </ul>
         </div>
       </section>
@@ -186,15 +223,18 @@
     <footer>
       <!-- .change.current::after -->
       <div>
-        <h4></h4>
-        <!-- .change.current::after -->
-        <p></p>
+        <!-- Підписант -->
+        <h4>Директор</h4>
+        <!-- .change.current::after / или дивчик с рамкой и ширинкой-->
+        <p>м.п.</p>
+        <img src="IMG/seal.jpg" width="125" height="121" alt="Печатка">
       </div>
       <!-- .change.current::after -->
       <div>
-        <h4></h4>
+        <!-- Підписант -->
+        <h4>Директор</h4>
         <!-- .change.current::after -->
-        <p></p>
+        <p>м.п.</p>
       </div>
     </footer>
   </body>
