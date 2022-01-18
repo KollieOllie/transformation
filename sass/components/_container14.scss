@@ -1,22 +1,25 @@
-@media print {
-  html, body {
+*,
+*::before,
+*::after {
+  // border: solid 1px green ;
+}
+html, body {
+  @media print {
     height: 297mm;
     width: 210mm;
-  }
+}
 }
 
 .container {
   width: 100%;
   margin: 0 auto;
   padding: 15px 15px;
-}
 
-@media screen and (min-width: 1200px) {
-  .container {
+  @media screen and (min-width: 1200px) {
     width: 1240px;
     max-height: 1754px;
     margin: 0 auto;
     padding: 0px 15px;
   }
+  
 }
-/*# sourceMappingURL=main.css.map */

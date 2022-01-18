@@ -1,0 +1,24 @@
+body {
+  font-family: $main-font;
+  letter-spacing: $letter-spacing;
+}
+
+img {
+  // display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+table th,
+table td {
+padding: 10px;
+border: 1px solid $border;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+ p {
+  text-indent: 20px; /* Отступ первой строки в пикселах */
+}
