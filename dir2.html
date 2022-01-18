@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ukr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зразок заповнення платіжного дор</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=".css" />
+</head>
+<body>
+<!--========================= header ============-->
+    <header>
+      <img src="IMG/Logo.png" alt="логотип" width="200" height="70">
+
+
+      <!--========================= ДЛЯ ПАРСЕРА  ============-->
+
+        <!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+        
+        <head>
+        <meta http-equiv="Content-Language" content="uk" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Зразок заповнення платіжного дор</title> -->
+        
+        <style type="text/css">
+        .ms-grid1-0000-main {}
+        .ms-grid1-0000-even {}
+        </style>
+    </header>
+    <main>
+<!--======================= hero ===================-->       
+        <section>
+          <h1>
+          Зразок заповнення платіжного доручення
+          </h1>
+          <div>
+              <ul>
+                  <li>Отримувач</li>
+                  <li><node_inform paramname="IBS_POSTACH_SHORT_NAME">
+                  </node_inform></li>
+                  <li>КРЕДИТ рах. №</li>
+              </ul>
+              <ul>
+                  <li>Код</li>
+                  <li><node_inform paramname="IBS_POSTACH_EDRPOU"></node_inform></li>
+                  <li><node_inform paramname="IBS_POSTACH_BILL"></node_inform></li>
+              </ul>
+              <ul>
+                  <li>Банк отримувача<span> </span> <node_inform paramname="IBS_POSTACH_BANK"></node_inform></li>
+                  <li><node_inform paramname="IBS_POSTACH_MFO"></node_inform></li>
+                  <li><node_inform nodedenom="FIRMA" paramname="IBS_NDOG"></node_inform></li>
+              </ul>
+          </div>
+          <div>
+              <ul>
+                  <li>СУМА</li>
+                  <li><figure></figure></li>
+                  <!-- сумма без переменной, просто фигурв -->
+              </ul>
+
+          </div>
+        </section>
+<!--====================== Address =================-->
+        <section>
+          <div>
+            <h2>Рахунок на оплату</h2>
+            <ul>
+                <li>№<span><bill_inform paramname="NUMBILL"></bill_inform></span></li>
+                <li>від<span><bill_inform paramname="DATEFORMBILL" format="dd.MM.yyyy"> р.</bill_inform></span></li>
+                <li>за<span><bill_inform paramname="DATEBILL" format="ukr"> <bill_inform paramname="DATEBILL" format="yyyy"> р.</bill_inform></bill_inform></span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Постачальник:</h3>
+            <ul>
+              <li><node_inform paramname="IBS_POSTACH_SHORT_NAME"> </li>
+              <li>п/р<span><node_inform paramname="IBS_POSTACH_BILL"> </node_inform></span></li>
+              <li>в<span><node_inform paramname="IBS_POSTACH_BANK"> </node_inform></span><span> ,</span></li>
+              <li>МФО<span><node_inform paramname="IBS_POSTACH_MFO"> </node_inform></span></li>
+              <li>Код ЄДРПОУ<span><node_inform paramname="IBS_POSTACH_EDRPOU"> </node_inform></span><span>, </span></li>
+              <li>ІПН<span><node_inform paramname="IBS_POSTACH_IPN"> </node_inform></span></li>
+              <li><a href="tel:+380442915035">тел.:<span><node_inform paramname="IBS_POSTACH_PHONES"> </node_inform></span></a></li>
+              <li><a href="mailto:info@energum.net">email:<span><node_inform paramname="IBS_POSTACH_EMAIL"></node_inform></span></a></li>
+              <li><a href="https://energum.com/">webстрінка: <span><node_inform paramname="IBS_POSTACH_WEB"></node_inform></span></a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Споживач:</h3>
+            <ul>
+              <li><node_inform nodedenom="FIRMA" paramname="IBS_FULL_NAME"></node_inform></li>
+              <li><node_inform nodedenom="FIRMA" paramname="IBS_UR_ADR"></node_inform></li>
+              <li><a href="tel:+380442915035">тел: <span><node_inform nodedenom="FIRMA" paramname="IBS_PHONE"></node_inform></span></a></li>
+              <li><a href="mailto:">email: <span><node_inform nodedenom="FIRMA" paramname="IBS_EMAIL"></node_inform></span></a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Договір:</h3>
+            <ul>
+              <li>Договір про постачання електричної енергії</li>
+              <li class="nav-link change current">№ <span><node_inform nodedenom="FIRMA" paramname="IBS_NDOG"></node_inform></span></li>
+              <li class="nav-link change current">від <span><node_inform nodedenom="FIRMA" paramname="IBS_DDOG">р.</node_inform></span></li>
+            </ul>
+          </div>
+        </section>
+<!--====================== Table ===================-->
+        <section>
+          <table style="border:  olive; border-style: solid;">
+            <thead style="border:  olive; border-style: solid;">
+              <tr style="border:  olive; border-style: solid;">
+                <th style="border:  olive; border-style: solid;">№</th>
+                <th style="border:  olive; border-style: solid;">Товари (роботи, послуги)</th>
+                <th>Клас напруги</th>
+                <th>Кіл-ть</th>
+                <th>Од. вим.</th>
+                <th>Ціна без ПДВ,грн.</th>
+                <th>Сума без ПДВ,грн.</th>
+              </tr>
+            </thead>
+            <tbody style="border:  olive; border-style: solid;">
+              <tr style="border:  olive; border-style: solid;">
+                <td style="border:  olive; border-style: solid;">1</td>
+                <td style="border:  olive; border-style: solid;" rowspan="2">Компенсація за послугу розподілу електричної енергії, що надається АТ«ХЕРСОНОБЛЕНЕРГО»</td>
+                <td style="border:  olive; border-style: solid;">1</td>
+                <td style="border:  olive; border-style: solid;"></td>
+                <td>кВтꞏгод</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr style="border:  olive; border-style: solid;">
+                <td style="border:  olive; border-style: solid;">2</td>
+                <td style="border:  olive; border-style: solid;">2</td>
+                <td style="border:  olive; border-style: solid;"></td>
+                <td>кВтꞏгод</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+            
+          <ul>
+            <li>Всього:</li>
+            <li>Сума ПДВ:</li>
+            <li>Всього нараховано з ПДВ:</li>
+            <li>Враховано переплат:</li>
+            <li>Поточний баланс з ПДВ:</li>
+            <li>Підлягає до оплати з ПДВ:</li>
+            <li>в т.ч. сума ПДВ:</li>
+          </ul>
+          <ul>
+            <li><bill_inform paramname="SUMALL"></bill_inform></li>
+            <li><bill_inform paramname="SUMNDS"></bill_inform></li>
+            <li><bill_inform paramname="SUMALLNDS"></bill_inform></li>
+            <li><bill_inform paramname="OVERPAYMENT"></bill_inform></li>
+            <li><bill_inform paramname="BALCUR"></bill_inform></li>
+            <li><bill_inform paramname="ALLPAY"></bill_inform></li>
+            <li><bill_inform paramname="ALLPAYNDS"></bill_inform></li>
+          </ul>
+        </section>
+<!--====================== Amount ===================-->         
+        <section>      
+          <ul>
+            <li>Всього найменувань одне, на суму <span><bill_inform paramname="ALLPAY"></bill_inform></span>грн.</li>
+            <li>Сума прописом <span><bill_inform paramname="ALLPAYWORDS"></bill_inform></span></li>
+            <li>У т.ч. ПДВ <span><bill_inform paramname="ALLPAYNDSWORDS"></bill_inform></span></li>
+          </ul>
+        </section>
+<!--====================== Signature =================-->   
+        <section>
+          <div>
+            <ul>
+              <li>
+                Сплатити до:
+              </li>
+              <li><bill_inform paramname="DATEPAYBILL" format="dd.MM.yyyy"></bill_inform></li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>Виписав:</li>
+              <li class="nav-link change current">м.п.</li>
+              <li>
+                <img src="" alt="">
+              </li>
+            </ul>
+          </div>
+        </section>
+    </main>
+<!--========================== footer ======================================-->
+    <footer>
+      <p>УВАГА! <br> 
+        В призначенні платежу обов'язково вказати номер даного рахунку № <bill_inform paramname="NUMBILL"></bill_inform>(без пробілів)! <br>У разі недотримання цієї умови оплата може бути не зарахована!
+      </p>  
+      <address>
+        <ul>
+          <li>
+            Звернення, скаргу або претензію стосовно якості постачання електричної енергії та повідомити про загрозу
+          електробезпеки можна за допомогою форми зворотного зв’язку на сайті 
+          </li>
+          <li>
+            <a href="https://energum.com">https://energum.com, а також по телефонам: </a>
+          </li>
+          <li>
+            <a class="contacts change" href="tel:+380442915035">
+              <svg class="" width="10" height="16">
+                <use href=""></use>
+              </svg>
+              (044) 2915035
+            </a>
+          </li>
+          <li>
+            <a class="contacts change" href="tel:+380669252901">
+              <svg class="" width="10" height="16">
+                <use href=""></use>
+              </svg>
+              (066) 9252901
+            </a>
+          </li>
+        </ul>
+      </address>
+    </footer>
+</body>
+</html>
