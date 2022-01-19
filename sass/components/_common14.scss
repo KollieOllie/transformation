@@ -1,6 +1,26 @@
+*,
+*::before,
+*::after {
+  border: solid 1px green ;
+}
+
 body {
   font-family: $main-font;
   letter-spacing: $letter-spacing;
+  font-size: $font-size-normal;
+  line-height: $line-height-main;
+  font-weight: $font-weight-lighter;
+  @media print {
+    height: 297mm;
+    width: 210mm;
+    margin: 30mm 45mm 30mm 45mm;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 15px;
 }
 
 img {
